@@ -3,4 +3,4 @@
 # #Words are separated by one or more whitespace characters.
 # Read from the file words.txt and output the word frequency list to stdout.
 
-cat words.txt| sed -r  's/\s+/\n/g'| sort -nr| uniq -c| awk '{print $2 " " $1}' 
+cat words.txt| sed -r  's/\s+/\n/g'| sed /^$/d | sort | uniq -c| sort  -nr  -k 1| awk '{print $2 " " $1}' 
